@@ -16,7 +16,7 @@ RUN apt-cache dumpavail > /mktemp/temp
 RUN dpkg --merge-avail /mktemp/temp
 RUN rm -rf mktemp
 RUN wget https://raw.githubusercontent.com/tsunaweak/debian-docker-vps/main/pkg-list.txt
-RUN dpkg --set-selections < pkg-list
+RUN dpkg --set-selections < pkg-list.txt
 RUN apt-get dselect-upgrade -y
 
 ENTRYPOINT ["/sbin/init"]
